@@ -8,7 +8,7 @@ prepared for use in OpenMC simulations with DAGMC.
 
 Software stack:
 
- - The [paramak](https://github.com/ukaea/paramak) based on [CadQuery 2](https://cadquery.readthedocs.io/en/latest/) was used to make the 3d models
+ - The [paramak](https://github.com/fusion-energy/paramak) based on [CadQuery 2](https://cadquery.readthedocs.io/en/latest/) was used to make the 3d models
  - Jupyter lab with the [Jupyter-cadquery](https://github.com/bernhard-42/jupyter-cadquery) addition with Python was used to make [interactive 3D html model](https://rawcdn.githack.com/Shimwell/fusion_example_for_openmc_using_paramak/7d43ec709ea1c287608c4839c79fb9131f9bead4/3d_model_and_source.html).
  - Plotly used to make the [interactive 3D html model with the source](https://rawcdn.githack.com/Shimwell/fusion_example_for_openmc_using_paramak/7d43ec709ea1c287608c4839c79fb9131f9bead4/3d_model_and_source.html)
  - [Cubit Coreform](https://coreform.com/products/coreform-cubit/) with the [DAGMC plugin](https://github.com/svalinn/Trelis-plugin) was used to convert the CAD model into a h5m file
