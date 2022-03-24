@@ -1,0 +1,12 @@
+
+
+name: env_neutronics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - openmc=0.13.0
+  - pip
+  - pip:
+    - openmc_data_downloader
+    - openmc_mesh_tally_to_vtk
