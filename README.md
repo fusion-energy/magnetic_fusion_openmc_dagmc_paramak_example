@@ -10,8 +10,6 @@ reflecting surfaces.
 - The neutronics simulation obtains the tritium breeding ratio and a 3D map of tritium production.
 - The simulation outputs are post processed to display the results and produce a VTK file for visualization.
 
-
-![Jupyter-cadquery image](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
 # Prerequisites
 
 This minimal example makes use of Conda to manage and install the packages.
@@ -47,14 +45,14 @@ python 1_creation_of_dagmc_geometry.py
 
 Then open the ```dagmc.html``` file in an internet browser to view the CAD created
 
-<!-- ![CAD geometry image](https://user-images.githubusercontent.com/8583900/159698975-d82544c7-635b-4117-b4bc-4d61a8cf9ecc.png) -->
+![CAD geometry image](https://github.com/Shimwell/fusion_example_for_openmc_using_paramak/blob/main/reactor.png?raw=true)
 
 Optionally you can inspect the DAGMC file at this stage by converting the h5m file to a vtk file and opening this with [Paraview](https://www.paraview.org/)
 ```
 mbconvert dagmc.h5m dagmc.vtk
 paraview dagmc.vtk
 ```
-<!-- ![DAGMC model image](https://user-images.githubusercontent.com/8583900/159698979-3665e14b-ca42-4df2-8a1e-deee6597efc0.png) -->
+![DAGMC model image](https://user-images.githubusercontent.com/8583900/159941242-9d57e55d-e800-4bdb-81eb-9085eae70960.png)
 
 # Simulating the model in OpenMC
 
