@@ -79,4 +79,4 @@ Open up the VTK file with Paraview and slice the data to see the high tritium br
 ```bash
 paraview tritium_production_map.vtk
 ```
-<!-- ![Mesh Tally result](https://user-images.githubusercontent.com/8583900/159698986-5e325860-dbd9-4b17-aba7-6043675ba2d3.png) -->
+![Mesh Tally result](https://user-images.githubusercontent.com/8583900/159939523-9fbec781-6283-431e-9623-9f3ea6eb5371.png)
