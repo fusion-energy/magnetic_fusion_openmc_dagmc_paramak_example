@@ -1,3 +1,5 @@
+import math
+
 import openmc
 import openmc_data_downloader as odd
 
@@ -111,11 +113,31 @@ odd.just_in_time_library_generator(
 # makes use of the dagmc geometry
 dag_univ = openmc.DAGMCUniverse("dagmc.h5m")
 
-# creates an edge of universe boundary
+# creates an edge of universe boundary surface
 vac_surf = openmc.Sphere(r=10000, surface_id=9999, boundary_type="vacuum")
 
-# specifies the region as below the universe boundary
-region = -vac_surf
+# adds reflective surface for the sector model at 0 degrees
+reflective_1 = openmc.Plane(
+    a=math.sin(0),
+    b=-math.cos(0),
+    c=0.0,
+    d=0.0,
+    surface_id=9991,
+    boundary_type="reflective",
+)
+
+# adds reflective surface for the sector model at 90 degrees
+reflective_2 = openmc.Plane(
+    a=math.sin(math.radians(90)),
+    b=-math.cos(math.radians(90)),
+    c=0.0,
+    d=0.0,
+    surface_id=9990,
+    boundary_type="reflective",
+)
+
+# specifies the region as below the universe boundary and inside the reflective surfaces
+region = -vac_surf & -reflective_1 & +reflective_2
 
 # creates a cell from the region and fills the cell with the dagmc geometry
 containing_cell = openmc.Cell(cell_id=9999, region=region, fill=dag_univ)
