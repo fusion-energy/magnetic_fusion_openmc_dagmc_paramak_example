@@ -1,0 +1,13 @@
+
+
+name: env_cad
+channels:
+  - fusion-energy
+  - cadquery
+  - conda-forge
+dependencies:
+  - python=3.9
+  - paramak=0.7.2
+  - pip
+  - pip:
+    - jupyter-cadquery

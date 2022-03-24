@@ -128,10 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# openmc, dagmc and trelis files
-*.ppm
-*.png
+# output files
+*.h5m
+*.html
 *.xml
 *.h5
 *.out
-*.jou
+*.xml
+*.vtk
