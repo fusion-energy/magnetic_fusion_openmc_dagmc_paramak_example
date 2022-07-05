@@ -71,13 +71,18 @@ Then run the simulation which will produce a statepoint.10.h5 file that contains
 python 2_run_openmc_dagmc_simulation.py
 ```
 
-Then run the post processing script that should output the Tritium Breeding Ratio to the terminal and make a VTK showing the neutron interactions resulting in tritium production
+Then run the post processing script that should output the heating and Tritium Breeding Ratio to the terminal and make a VTK showing the heating and the neutron interactions resulting in tritium production
 ```bash
 python 3_extract_results.py
 ```
 
-Open up the VTK file with Paraview and slice the data to see the high tritium breeding region
+Open up the VTK file with Paraview and slice the data to see the heating
 ```bash
 paraview tritium_production_map.vtk
 ```
 ![Mesh Tally result](https://user-images.githubusercontent.com/8583900/159939523-9fbec781-6283-431e-9623-9f3ea6eb5371.png)
+
+The VTK file showing the Tritium Breeding Ratio is similarly opened: 
+```bash
+paraview heating_map.vtk
+```
