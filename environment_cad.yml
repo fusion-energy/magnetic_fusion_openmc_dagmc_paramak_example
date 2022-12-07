@@ -7,7 +7,24 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - paramak=0.8.5
+  - paramak=0.8.6
   - pip
   - pip:
     - jupyter-cadquery
+
+
+ volume 7990693.514456061
+ center_x 243.84568312098222
+ center_y 243.84569235826808
+ center_z -254.49254490257562
+ bounding_box_xmin -9.999999000799277e-08
+ bounding_box_ymin -1.0000017053025658e-07
+ bounding_box_zmin -330.0000768676014
+ bounding_box_xmax 539.6731999059491
+ bounding_box_ymax 539.6731999059491
+ bounding_box_zmax -116.70990371711389
+ with tolerances
+  volume_atol 1e-06
+  center_atol 1e-06
+  bounding_box_atol 1e-06
+
