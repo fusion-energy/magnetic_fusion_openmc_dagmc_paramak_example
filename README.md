@@ -35,8 +35,9 @@ cd magnetic_fusion_openmc_dagmc_paramak_example
 
 # Making the DAGMC model
 
-Make an environment for the model preparation
+Make an environment for the model preparation from your base environment
 ```
+conda activate base
 conda env create -f environment_cad.yml
 conda activate env_cad
 ```
@@ -59,9 +60,10 @@ paraview dagmc.vtk
 
 # Simulating the model in OpenMC
 
-First make an environment for simulation.
+First make an environment for simulation from your base environment.
 
 ```
+conda activate base
 conda env create -f environment_neutronics.yml
 conda activate env_neutronics
 ```
