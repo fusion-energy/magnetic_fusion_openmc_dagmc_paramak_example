@@ -169,23 +169,32 @@ settings.run_mode = "fixed source"
 settings.source = my_source
 
 # adds a tally to record the heat deposited in entire geometry
-cell_tally = openmc.Tally(name="heating")
-cell_tally.scores = ["heating"]
+heating_cell_tally = openmc.Tally(name="heating")
+heating_cell_tally.scores = ["heating"]
+
+# adds a tally to record the total TBR
+tbr_cell_tally = openmc.Tally(name="tbr")
+tbr_cell_tally.scores = ["(n,Xt)"]
 
 # creates a mesh that covers the geometry
 mesh = openmc.RegularMesh()
 mesh.dimension = [100, 100, 100]
 mesh.lower_left = [0, 0, -350]  # x,y,z coordinates start at 0 as this is a sector model
 mesh.upper_right = [650, 650, 350]
+mesh_filter = openmc.MeshFilter(mesh) # creating a mesh
 
 # makes a mesh tally using the previously created mesh and records heating on the mesh
-mesh_tally = openmc.Tally(name="heating_on_mesh")
-mesh_filter = openmc.MeshFilter(mesh)
-mesh_tally.filters = [mesh_filter]
-mesh_tally.scores = ["heating"]
+heating_mesh_tally = openmc.Tally(name="heating_on_mesh")
+heating_mesh_tally.filters = [mesh_filter]
+heating_mesh_tally.scores = ["heating"]
+
+# makes a mesh tally using the previously created mesh and records TBR on the mesh
+tbr_mesh_tally = openmc.Tally(name="tbr_on_mesh")
+tbr_mesh_tally.filters = [mesh_filter]
+tbr_mesh_tally.scores = ["(n,Xt)"]
 
 # groups the two tallies
-tallies = openmc.Tallies([cell_tally, mesh_tally])
+tallies = openmc.Tallies([tbr_cell_tally, tbr_mesh_tally, heating_cell_tally, heating_mesh_tally])
 
 # builds the openmc model
 my_model = openmc.Model(
@@ -193,4 +202,4 @@ my_model = openmc.Model(
 )
 
 # starts the simulation
-statepoint_file = my_model.run()
+my_model.run()
