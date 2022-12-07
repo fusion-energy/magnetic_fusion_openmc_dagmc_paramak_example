@@ -1,5 +1,3 @@
-
-
 name: env_cad
 channels:
   - fusion-energy
@@ -7,7 +5,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - paramak=0.8.5
+  - paramak=0.8.6
   - pip
   - pip:
     - jupyter-cadquery
