@@ -7,7 +7,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - paramak=0.7.2
+  - paramak=0.8.5
   - pip
   - pip:
     - jupyter-cadquery
