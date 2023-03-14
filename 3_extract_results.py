@@ -38,6 +38,6 @@ heating_mesh_tally = sp.get_tally(name="heating_on_mesh")
 
 # writes the heating mesh tally as a vtk file
 write_mesh_tally_to_vtk(
-    tally=tbr_mesh_tally,
+    tally=heating_mesh_tally,
     filename="heating_map.vtk",
 )
