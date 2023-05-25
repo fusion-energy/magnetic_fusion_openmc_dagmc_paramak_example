@@ -1,7 +1,7 @@
 import math
 
 import openmc
-import openmc_data_downloader as odd
+import openmc_data_downloader  # extends the openmc.Materials class to allow data to be downloaded
 
 
 # Names of material tags can be found with the command line tool
@@ -105,10 +105,12 @@ materials = openmc.Materials(
 )
 
 # downloads the nuclear data and sets the openmc_cross_sections environmental variable
-odd.just_in_time_library_generator(
-    libraries='ENDFB-7.1-NNDC',
-    materials=materials
-)
+
+materials.download_cross_section_data(
+        libraries=["ENDFB-7.1-NNDC"],
+        set_OPENMC_CROSS_SECTIONS=True,
+        particles=["neutron"],
+    )
 
 # makes use of the dagmc geometry
 dag_univ = openmc.DAGMCUniverse("dagmc.h5m")
