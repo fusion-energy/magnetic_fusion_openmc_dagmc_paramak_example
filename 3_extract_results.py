@@ -1,9 +1,5 @@
 import openmc
 
-# this is a small package that facilitates saving of mesh tallies as vtk files
-# https://github.com/fusion-energy/openmc_mesh_tally_to_vtk
-from openmc_mesh_tally_to_vtk import write_mesh_tally_to_vtk
-
 
 # open the results file
 sp = openmc.StatePoint("statepoint.10.h5")
@@ -18,10 +14,13 @@ print(f"Standard deviation on the TBR is {tbr_cell_tally.std_dev.sum()}")
 # extracts the mesh tally result
 tbr_mesh_tally = sp.get_tally(name="tbr_on_mesh")
 
+# gets the mesh used for the tally
+mesh = tbr_mesh_tally.find_filter(openmc.MeshFilter).mesh
+
 # writes the TBR mesh tally as a vtk file
-write_mesh_tally_to_vtk(
-    tally=tbr_mesh_tally,
+mesh.write_data_to_vtk(
     filename="tritium_production_map.vtk",
+    datasets={"mean": tbr_mesh_tally.mean}  # the first "mean" is the name of the data set label inside the vtk file
 )
 
 # access the heating tally using pandas dataframes
@@ -36,8 +35,11 @@ print(f"Standard deviation on the heating tally is {heating_cell_tally.std_dev.s
 # extracts the mesh tally result
 heating_mesh_tally = sp.get_tally(name="heating_on_mesh")
 
-# writes the heating mesh tally as a vtk file
-write_mesh_tally_to_vtk(
-    tally=heating_mesh_tally,
+# gets the mesh used for the tally
+mesh = heating_mesh_tally.find_filter(openmc.MeshFilter).mesh
+
+# writes the TBR mesh tally as a vtk file
+mesh.write_data_to_vtk(
     filename="heating_map.vtk",
+    datasets={"mean": heating_mesh_tally.mean}  # the first "mean" is the name of the data set label inside the vtk file
 )

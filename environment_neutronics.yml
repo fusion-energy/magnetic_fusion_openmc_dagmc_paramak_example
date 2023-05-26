@@ -5,8 +5,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.9
-  - openmc=0.13.2
+  - openmc=0.13.3
   - pip
   - pip:
     - openmc_data_downloader
-    - openmc_mesh_tally_to_vtk
