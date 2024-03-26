@@ -26,19 +26,19 @@ mat_pf_coil_4.set_density("g/cm3", 8.96)
 
 mat_pf_coil_case_1 = openmc.Material(name="pf_coil_case_1")
 mat_pf_coil_case_1.add_element("Fe", 1, "ao")
-mat_pf_coil_case_1.set_density("g/cm3", 8.96)
+mat_pf_coil_case_1.set_density("g/cm3", 7.7)
 
 mat_pf_coil_case_2 = openmc.Material(name="pf_coil_case_2")
 mat_pf_coil_case_2.add_element("Fe", 1, "ao")
-mat_pf_coil_case_2.set_density("g/cm3", 8.96)
+mat_pf_coil_case_2.set_density("g/cm3", 7.7)
 
 mat_pf_coil_case_3 = openmc.Material(name="pf_coil_case_3")
 mat_pf_coil_case_3.add_element("Fe", 1, "ao")
-mat_pf_coil_case_3.set_density("g/cm3", 8.96)
+mat_pf_coil_case_3.set_density("g/cm3", 7.7)
 
 mat_pf_coil_case_4 = openmc.Material(name="pf_coil_case_4")
 mat_pf_coil_case_4.add_element("Fe", 1, "ao")
-mat_pf_coil_case_4.set_density("g/cm3", 8.96)
+mat_pf_coil_case_4.set_density("g/cm3", 7.7)
 
 mat_plasma = openmc.Material(name="plasma")
 mat_plasma.add_element("H", 1, "ao")
